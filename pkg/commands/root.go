@@ -11,13 +11,13 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 func (e *Executor) persistentPreRun(_ *cobra.Command, _ []string) {
 	if e.cfg.Run.PrintVersion {
-		fmt.Fprintf(logutils.StdOut, "golangci-lint has version %s built from %s on %s\n", e.version, e.commit, e.date)
+		fmt.Fprintf(logutils.StdOut, "go-readability has version %s built from %s on %s\n", e.version, e.commit, e.date)
 		os.Exit(0)
 	}
 
@@ -116,12 +116,12 @@ func getDefaultConcurrency() int {
 
 func (e *Executor) initRoot() {
 	rootCmd := &cobra.Command{
-		Use:   "golangci-lint",
-		Short: "golangci-lint is a smart linters runner.",
+		Use:   "go-readability",
+		Short: "go-readability is a smart linters runner.",
 		Long:  `Smart, fast linters runner. Run it in cloud for every GitHub pull request on https://golangci.com`,
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 0 {
-				e.log.Fatalf("Usage: golangci-lint")
+				e.log.Fatalf("Usage: go-readability")
 			}
 			if err := cmd.Help(); err != nil {
 				e.log.Fatalf("Can't run help: %s", err)
@@ -148,7 +148,7 @@ func initRootFlagSet(fs *pflag.FlagSet, cfg *config.Config, needVersionOption bo
 		panic(err)
 	}
 	err := fs.MarkDeprecated("silent",
-		"now golangci-lint by default is silent: it doesn't print Congrats message")
+		"now go-readability by default is silent: it doesn't print Congrats message")
 	if err != nil {
 		panic(err)
 	}

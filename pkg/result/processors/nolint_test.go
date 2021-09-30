@@ -9,11 +9,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/golinters"
-	"github.com/golangci/golangci-lint/pkg/lint/lintersdb"
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/golinters"
+	"github.com/hitzhangjie/go-readability/pkg/lint/lintersdb"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 func newNolintFileIssue(line int, fromLinter string) result.Issue {

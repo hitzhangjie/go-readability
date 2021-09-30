@@ -4,7 +4,7 @@ import (
 	"github.com/kunwardeep/paralleltest/pkg/paralleltest"
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis"
 )
 
 func NewParallelTest() *goanalysis.Linter {

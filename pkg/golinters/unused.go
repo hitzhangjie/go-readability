@@ -7,10 +7,10 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"honnef.co/go/tools/unused"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis"
+	"github.com/hitzhangjie/go-readability/pkg/lint/linter"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 type UnusedSettings struct {

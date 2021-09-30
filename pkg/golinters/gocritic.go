@@ -14,10 +14,10 @@ import (
 	gocriticlinter "github.com/go-critic/go-critic/framework/linter"
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis"
+	"github.com/hitzhangjie/go-readability/pkg/lint/linter"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 const gocriticName = "gocritic"
@@ -69,7 +69,7 @@ Dynamic rules are written declaratively with AST patterns, filters, report messa
 }
 
 func normalizeCheckerInfoParams(info *gocriticlinter.CheckerInfo) gocriticlinter.CheckerParams {
-	// lowercase info param keys here because golangci-lint's config parser lowercases all strings
+	// lowercase info param keys here because go-readability's config parser lowercases all strings
 	ret := gocriticlinter.CheckerParams{}
 	for k, v := range info.Params {
 		ret[strings.ToLower(k)] = v

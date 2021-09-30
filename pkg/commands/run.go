@@ -15,15 +15,15 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
-	"github.com/golangci/golangci-lint/pkg/lint"
-	"github.com/golangci/golangci-lint/pkg/lint/lintersdb"
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/packages"
-	"github.com/golangci/golangci-lint/pkg/printers"
-	"github.com/golangci/golangci-lint/pkg/result"
-	"github.com/golangci/golangci-lint/pkg/result/processors"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/exitcodes"
+	"github.com/hitzhangjie/go-readability/pkg/lint"
+	"github.com/hitzhangjie/go-readability/pkg/lint/lintersdb"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/packages"
+	"github.com/hitzhangjie/go-readability/pkg/printers"
+	"github.com/hitzhangjie/go-readability/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/result/processors"
 )
 
 func getDefaultIssueExcludeHelp() string {
@@ -82,7 +82,7 @@ func initFlagSet(fs *pflag.FlagSet, cfg *config.Config, m *lintersdb.Manager, is
 	fs.StringVar(&oc.PathPrefix, "path-prefix", "", wh("Path prefix to add to output"))
 	hideFlag("print-welcome") // no longer used
 
-	fs.BoolVar(&cfg.InternalCmdTest, "internal-cmd-test", false, wh("Option is used only for testing golangci-lint command, don't use it"))
+	fs.BoolVar(&cfg.InternalCmdTest, "internal-cmd-test", false, wh("Option is used only for testing go-readability command, don't use it"))
 	if err := fs.MarkHidden("internal-cmd-test"); err != nil {
 		panic(err)
 	}
@@ -103,18 +103,18 @@ func initFlagSet(fs *pflag.FlagSet, cfg *config.Config, m *lintersdb.Manager, is
 
 	fs.BoolVar(&rc.AnalyzeTests, "tests", true, wh("Analyze tests (*_test.go)"))
 	fs.BoolVar(&rc.PrintResourcesUsage, "print-resources-usage", false,
-		wh("Print avg and max memory usage of golangci-lint and total time"))
+		wh("Print avg and max memory usage of go-readability and total time"))
 	fs.StringVarP(&rc.Config, "config", "c", "", wh("Read config from file path `PATH`"))
 	fs.BoolVar(&rc.NoConfig, "no-config", false, wh("Don't read config"))
 	fs.StringSliceVar(&rc.SkipDirs, "skip-dirs", nil, wh("Regexps of directories to skip"))
 	fs.BoolVar(&rc.UseDefaultSkipDirs, "skip-dirs-use-default", true, getDefaultDirectoryExcludeHelp())
 	fs.StringSliceVar(&rc.SkipFiles, "skip-files", nil, wh("Regexps of files to skip"))
 
-	const allowParallelDesc = "Allow multiple parallel golangci-lint instances running. " +
-		"If false (default) - golangci-lint acquires file lock on start."
+	const allowParallelDesc = "Allow multiple parallel go-readability instances running. " +
+		"If false (default) - go-readability acquires file lock on start."
 	fs.BoolVar(&rc.AllowParallelRunners, "allow-parallel-runners", false, wh(allowParallelDesc))
-	const allowSerialDesc = "Allow multiple golangci-lint instances running, but serialize them	around a lock. " +
-		"If false (default) - golangci-lint exits with an error if it fails to acquire file lock on start."
+	const allowSerialDesc = "Allow multiple go-readability instances running, but serialize them	around a lock. " +
+		"If false (default) - go-readability exits with an error if it fails to acquire file lock on start."
 	fs.BoolVar(&rc.AllowSerialRunners, "allow-serial-runners", false, wh(allowSerialDesc))
 
 	// Linters settings config
@@ -206,7 +206,7 @@ func initFlagSet(fs *pflag.FlagSet, cfg *config.Config, m *lintersdb.Manager, is
 
 	fs.BoolVar(&lc.DisableAll, "disable-all", false, wh("Disable all linters"))
 	fs.StringSliceVarP(&lc.Presets, "presets", "p", nil,
-		wh(fmt.Sprintf("Enable presets (%s) of linters. Run 'golangci-lint linters' to see "+
+		wh(fmt.Sprintf("Enable presets (%s) of linters. Run 'go-readability linters' to see "+
 			"them. This option implies option --disable-all", strings.Join(m.AllPresets(), "|"))))
 	fs.BoolVar(&lc.Fast, "fast", false, wh("Run only fast linters from enabled linters set (first run won't be fast)"))
 
@@ -225,10 +225,10 @@ func initFlagSet(fs *pflag.FlagSet, cfg *config.Config, m *lintersdb.Manager, is
 	fs.BoolVarP(&ic.Diff, "new", "n", false,
 		wh("Show only new issues: if there are unstaged changes or untracked files, only those changes "+
 			"are analyzed, else only changes in HEAD~ are analyzed.\nIt's a super-useful option for integration "+
-			"of golangci-lint into existing large codebase.\nIt's not practical to fix all existing issues at "+
+			"of go-readability into existing large codebase.\nIt's not practical to fix all existing issues at "+
 			"the moment of integration: much better to not allow issues in new code.\nFor CI setups, prefer "+
 			"--new-from-rev=HEAD~, as --new can skip linting the current patch if any scripts generate "+
-			"unstaged files before golangci-lint runs."))
+			"unstaged files before go-readability runs."))
 	fs.StringVar(&ic.DiffFromRevision, "new-from-rev", "",
 		wh("Show only new issues created after git revision `REV`"))
 	fs.StringVar(&ic.DiffPatchFilePath, "new-from-patch", "",
@@ -279,7 +279,7 @@ func (e *Executor) initRun() {
 		Run:   e.executeRun,
 		PreRun: func(_ *cobra.Command, _ []string) {
 			if ok := e.acquireFileLock(); !ok {
-				e.log.Fatalf("Parallel golangci-lint is running")
+				e.log.Fatalf("Parallel go-readability is running")
 			}
 		},
 		PostRun: func(_ *cobra.Command, _ []string) {

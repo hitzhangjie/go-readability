@@ -10,9 +10,9 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
 
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/sliceutil"
+	"github.com/hitzhangjie/go-readability/pkg/fsutils"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/sliceutil"
 )
 
 type FileReader struct {
@@ -131,7 +131,7 @@ func (r *FileReader) validateConfig() error {
 func getFirstPathArg() string {
 	args := os.Args
 
-	// skip all args ([golangci-lint, run/linters]) before files/dirs list
+	// skip all args ([go-readability, run/linters]) before files/dirs list
 	for len(args) != 0 {
 		if args[0] == "run" {
 			args = args[1:]

@@ -5,7 +5,7 @@ import (
 )
 
 const testdataDir = "testdata"
-const binName = "../golangci-lint"
+const binName = "../go-readability"
 
 var minimalPkg = getTestDataDir("minimalpkg")
 

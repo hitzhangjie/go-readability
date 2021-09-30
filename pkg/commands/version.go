@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 
-	"github.com/golangci/golangci-lint/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/config"
 )
 
 type jsonVersion struct {
@@ -49,7 +49,7 @@ func (e *Executor) initVersion() {
 				}
 				fmt.Println(string(data))
 			default:
-				fmt.Printf("golangci-lint has version %s built from %s on %s\n", e.version, e.commit, e.date)
+				fmt.Printf("go-readability has version %s built from %s on %s\n", e.version, e.commit, e.date)
 			}
 			return nil
 		},

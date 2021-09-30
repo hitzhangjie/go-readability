@@ -11,8 +11,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/exitcodes"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 type LintRunner struct {
@@ -39,7 +39,7 @@ func (r *LintRunner) Install() {
 		}
 
 		cmd := exec.Command("make", "-C", "..", "build")
-		assert.NoError(r.t, cmd.Run(), "Can't go install golangci-lint")
+		assert.NoError(r.t, cmd.Run(), "Can't go install go-readability")
 	})
 }
 
@@ -98,10 +98,10 @@ func (r *LintRunner) RunCommand(command string, args ...string) *RunResult {
 	runArgs = append(runArgs, args...)
 
 	defer func(startedAt time.Time) {
-		r.log.Infof("ran [../golangci-lint %s] in %s", strings.Join(runArgs, " "), time.Since(startedAt))
+		r.log.Infof("ran [../go-readability %s] in %s", strings.Join(runArgs, " "), time.Since(startedAt))
 	}(time.Now())
 
-	cmd := exec.Command("../golangci-lint", runArgs...)
+	cmd := exec.Command("../go-readability", runArgs...)
 	cmd.Env = append(os.Environ(), r.env...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {

@@ -15,8 +15,8 @@ import (
 	"golang.org/x/tools/go/gcexportdata"
 	"golang.org/x/tools/go/packages"
 
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis/load"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis/load"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 const unsafePkgName = "unsafe"

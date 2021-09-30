@@ -8,8 +8,8 @@ import (
 	"honnef.co/go/tools/analysis/lint"
 	scconfig "honnef.co/go/tools/config"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 var debugf = logutils.Debug("megacheck")

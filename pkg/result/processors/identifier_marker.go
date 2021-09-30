@@ -3,7 +3,7 @@ package processors
 import (
 	"regexp"
 
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 type replacePattern struct {

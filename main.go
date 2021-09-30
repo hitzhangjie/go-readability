@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/golangci/golangci-lint/pkg/commands"
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
+	"github.com/hitzhangjie/go-readability/pkg/commands"
+	"github.com/hitzhangjie/go-readability/pkg/exitcodes"
 )
 
 var (

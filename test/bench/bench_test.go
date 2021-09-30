@@ -16,7 +16,7 @@ import (
 	gops "github.com/mitchellh/go-ps"
 	"github.com/shirou/gopsutil/v3/process"
 
-	"github.com/golangci/golangci-lint/test/testshared"
+	"github.com/hitzhangjie/go-readability/test/testshared"
 )
 
 func chdir(b *testing.B, dir string) {
@@ -86,10 +86,10 @@ func getGolangciLintCommonArgs() []string {
 func runGolangciLintForBench(b *testing.B) {
 	args := getGolangciLintCommonArgs()
 	args = append(args, getBenchLintersArgs()...)
-	printCommand("golangci-lint", args...)
-	out, err := exec.Command("golangci-lint", args...).CombinedOutput()
+	printCommand("go-readability", args...)
+	out, err := exec.Command("go-readability", args...).CombinedOutput()
 	if err != nil {
-		b.Fatalf("can't run golangci-lint: %s, %s", err, out)
+		b.Fatalf("can't run go-readability: %s, %s", err, out)
 	}
 }
 
@@ -209,7 +209,7 @@ func BenchmarkGolangciLint(b *testing.B) {
 	bcases := []bcase{
 		{
 			name:    "self repo",
-			prepare: prepareGithubProject("golangci", "golangci-lint"),
+			prepare: prepareGithubProject("golangci", "go-readability"),
 		},
 		{
 			name:    "hugo",
@@ -239,7 +239,7 @@ func BenchmarkGolangciLint(b *testing.B) {
 	for _, bc := range bcases {
 		bc.prepare(b)
 		lc := getGoLinesTotalCount(b)
-		result := runOne(b, runGolangciLintForBench, "golangci-lint")
+		result := runOne(b, runGolangciLintForBench, "go-readability")
 
 		log.Printf("%s (%d kLoC): time: %s, memory: %dMB",
 			bc.name, lc/1000,

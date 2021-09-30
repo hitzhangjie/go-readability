@@ -5,11 +5,11 @@ import (
 
 	"golang.org/x/tools/go/packages"
 
-	"github.com/golangci/golangci-lint/internal/pkgcache"
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis/load"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/internal/pkgcache"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/fsutils"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis/load"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 type Context struct {

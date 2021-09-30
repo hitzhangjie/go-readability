@@ -12,8 +12,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v3"
 
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
-	"github.com/golangci/golangci-lint/test/testshared"
+	"github.com/hitzhangjie/go-readability/pkg/exitcodes"
+	"github.com/hitzhangjie/go-readability/test/testshared"
 )
 
 func runGoErrchk(c *exec.Cmd, defaultExpectedLinter string, files []string, t *testing.T) {

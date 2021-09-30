@@ -17,17 +17,17 @@ import (
 	"github.com/spf13/pflag"
 	"gopkg.in/yaml.v3"
 
-	"github.com/golangci/golangci-lint/internal/cache"
-	"github.com/golangci/golangci-lint/internal/pkgcache"
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis/load"
-	"github.com/golangci/golangci-lint/pkg/goutil"
-	"github.com/golangci/golangci-lint/pkg/lint"
-	"github.com/golangci/golangci-lint/pkg/lint/lintersdb"
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/report"
-	"github.com/golangci/golangci-lint/pkg/timeutils"
+	"github.com/hitzhangjie/go-readability/internal/cache"
+	"github.com/hitzhangjie/go-readability/internal/pkgcache"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/fsutils"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis/load"
+	"github.com/hitzhangjie/go-readability/pkg/goutil"
+	"github.com/hitzhangjie/go-readability/pkg/lint"
+	"github.com/hitzhangjie/go-readability/pkg/lint/lintersdb"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/report"
+	"github.com/hitzhangjie/go-readability/pkg/timeutils"
 )
 
 type Executor struct {
@@ -216,7 +216,7 @@ func (e *Executor) acquireFileLock() bool {
 		return true
 	}
 
-	lockFile := filepath.Join(os.TempDir(), "golangci-lint.lock")
+	lockFile := filepath.Join(os.TempDir(), "go-readability.lock")
 	e.debugf("Locking on file %s...", lockFile)
 	f := flock.New(lockFile)
 	const retryDelay = time.Second

@@ -7,8 +7,8 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/golangci/golangci-lint/pkg/exitcodes"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
+	"github.com/hitzhangjie/go-readability/pkg/exitcodes"
+	"github.com/hitzhangjie/go-readability/pkg/fsutils"
 )
 
 func (e *Executor) initConfig() {
@@ -17,7 +17,7 @@ func (e *Executor) initConfig() {
 		Short: "Config",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 0 {
-				e.log.Fatalf("Usage: golangci-lint config")
+				e.log.Fatalf("Usage: go-readability config")
 			}
 			if err := cmd.Help(); err != nil {
 				e.log.Fatalf("Can't run help: %s", err)
@@ -52,7 +52,7 @@ func (e *Executor) getUsedConfig() string {
 
 func (e *Executor) executePathCmd(_ *cobra.Command, args []string) {
 	if len(args) != 0 {
-		e.log.Fatalf("Usage: golangci-lint config path")
+		e.log.Fatalf("Usage: go-readability config path")
 	}
 
 	usedConfigFile := e.getUsedConfig()

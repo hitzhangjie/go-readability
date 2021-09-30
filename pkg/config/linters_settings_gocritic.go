@@ -9,7 +9,7 @@ import (
 	"github.com/go-critic/go-critic/framework/linter"
 	"github.com/pkg/errors"
 
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 const gocriticDebugKey = "gocritic"

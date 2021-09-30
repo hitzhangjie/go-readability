@@ -7,7 +7,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
+	"github.com/hitzhangjie/go-readability/pkg/lint/linter"
 )
 
 func (e *Executor) initLinters() {
@@ -22,7 +22,7 @@ func (e *Executor) initLinters() {
 
 func (e *Executor) executeLinters(_ *cobra.Command, args []string) {
 	if len(args) != 0 {
-		e.log.Fatalf("Usage: golangci-lint linters")
+		e.log.Fatalf("Usage: go-readability linters")
 	}
 
 	enabledLintersMap, err := e.EnabledLintersSet.GetEnabledLintersMap()

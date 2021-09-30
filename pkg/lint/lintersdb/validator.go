@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/golangci/golangci-lint/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/config"
 )
 
 type Validator struct {
@@ -30,7 +30,7 @@ func (v Validator) validateLintersNames(cfg *config.Linters) error {
 	}
 
 	if len(unknownNames) > 0 {
-		return fmt.Errorf("unknown linters: '%v', run 'golangci-lint help linters' to see the list of supported linters",
+		return fmt.Errorf("unknown linters: '%v', run 'go-readability help linters' to see the list of supported linters",
 			strings.Join(unknownNames, ","))
 	}
 

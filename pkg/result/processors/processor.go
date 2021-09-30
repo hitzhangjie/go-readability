@@ -1,7 +1,7 @@
 package processors
 
 import (
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 type Processor interface {

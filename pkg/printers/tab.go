@@ -8,8 +8,8 @@ import (
 
 	"github.com/fatih/color"
 
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 type Tab struct {

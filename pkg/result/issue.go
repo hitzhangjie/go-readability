@@ -43,7 +43,7 @@ type Issue struct {
 
 	Pos token.Position
 
-	// HunkPos is used only when golangci-lint is run over a diff
+	// HunkPos is used only when go-readability is run over a diff
 	HunkPos int `json:",omitempty"`
 
 	// If we are expecting a nolint (because this is from nolintlint), record the expected linter

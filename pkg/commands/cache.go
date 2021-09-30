@@ -7,9 +7,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/golangci/golangci-lint/internal/cache"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/internal/cache"
+	"github.com/hitzhangjie/go-readability/pkg/fsutils"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 func (e *Executor) initCache() {
@@ -18,7 +18,7 @@ func (e *Executor) initCache() {
 		Short: "Cache control and information",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 0 {
-				e.log.Fatalf("Usage: golangci-lint cache")
+				e.log.Fatalf("Usage: go-readability cache")
 			}
 			if err := cmd.Help(); err != nil {
 				e.log.Fatalf("Can't run cache: %s", err)
@@ -43,7 +43,7 @@ func (e *Executor) initCache() {
 
 func (e *Executor) executeCleanCache(_ *cobra.Command, args []string) {
 	if len(args) != 0 {
-		e.log.Fatalf("Usage: golangci-lint cache clean")
+		e.log.Fatalf("Usage: go-readability cache clean")
 	}
 
 	cacheDir := cache.DefaultDir()
@@ -56,7 +56,7 @@ func (e *Executor) executeCleanCache(_ *cobra.Command, args []string) {
 
 func (e *Executor) executeCacheStatus(_ *cobra.Command, args []string) {
 	if len(args) != 0 {
-		e.log.Fatalf("Usage: golangci-lint cache status")
+		e.log.Fatalf("Usage: go-readability cache status")
 	}
 
 	cacheDir := cache.DefaultDir()

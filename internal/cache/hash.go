@@ -28,7 +28,7 @@ type Hash struct {
 }
 
 // hashSalt is a salt string added to the beginning of every hash
-// created by NewHash. Using the golangci-lint version makes sure that different
+// created by NewHash. Using the go-readability version makes sure that different
 // versions of the command do not address the same cache
 // entries, so that a bug in one version does not affect the execution
 // of other versions. This salt will result in additional ActionID files

@@ -27,7 +27,7 @@ var (
 // cacheREADME is a message stored in a README in the cache directory.
 // Because the cache lives outside the normal Go trees, we leave the
 // README as a courtesy to explain where it came from.
-const cacheREADME = `This directory holds cached build artifacts from golangci-lint.
+const cacheREADME = `This directory holds cached build artifacts from go-readability.
 `
 
 // initDefaultCache does the work of finding the default cache
@@ -80,7 +80,7 @@ func DefaultDir() string {
 			defaultDirErr = fmt.Errorf("GOLANGCI_LINT_CACHE is not defined and %v", err)
 			return
 		}
-		defaultDir = filepath.Join(dir, "golangci-lint")
+		defaultDir = filepath.Join(dir, "go-readability")
 	})
 
 	return defaultDir

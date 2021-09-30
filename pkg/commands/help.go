@@ -9,8 +9,8 @@ import (
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/lint/linter"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
 )
 
 func (e *Executor) initHelp() {
@@ -19,7 +19,7 @@ func (e *Executor) initHelp() {
 		Short: "Help",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 0 {
-				e.log.Fatalf("Usage: golangci-lint help")
+				e.log.Fatalf("Usage: go-readability help")
 			}
 			if err := cmd.Help(); err != nil {
 				e.log.Fatalf("Can't run help: %s", err)
@@ -60,7 +60,7 @@ func printLinterConfigs(lcs []*linter.Config) {
 
 func (e *Executor) executeLintersHelp(_ *cobra.Command, args []string) {
 	if len(args) != 0 {
-		e.log.Fatalf("Usage: golangci-lint help linters")
+		e.log.Fatalf("Usage: go-readability help linters")
 	}
 
 	var enabledLCs, disabledLCs []*linter.Config

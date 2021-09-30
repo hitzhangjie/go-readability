@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v3"
 
-	"github.com/golangci/golangci-lint/test/testshared"
+	"github.com/hitzhangjie/go-readability/test/testshared"
 )
 
 func TestFix(t *testing.T) {

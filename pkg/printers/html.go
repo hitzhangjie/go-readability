@@ -6,16 +6,16 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/golangci/golangci-lint/pkg/logutils"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/logutils"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 const templateContent = `<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>golangci-lint</title>
-    <link rel="shortcut icon" type="image/png" href="https://golangci-lint.run/favicon-32x32.png">
+    <title>go-readability</title>
+    <link rel="shortcut icon" type="image/png" href="https://go-readability.run/favicon-32x32.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css"
           integrity="sha512-byErQdWdTqREz6DLAA9pCnLbdoGGhXfU6gm1c8bkf7F51JVmUBlayGe2A31VpXWQP+eiJ3ilTAZHCR3vmMyybA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -146,7 +146,7 @@ func (h HTML) Print(_ context.Context, issues []result.Issue) error {
 		})
 	}
 
-	t, err := template.New("golangci-lint").Parse(templateContent)
+	t, err := template.New("go-readability").Parse(templateContent)
 	if err != nil {
 		return err
 	}

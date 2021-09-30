@@ -15,11 +15,11 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/packages"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/fsutils"
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis"
-	"github.com/golangci/golangci-lint/pkg/lint/linter"
-	"github.com/golangci/golangci-lint/pkg/result"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/fsutils"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis"
+	"github.com/hitzhangjie/go-readability/pkg/lint/linter"
+	"github.com/hitzhangjie/go-readability/pkg/result"
 )
 
 func NewErrcheck() *goanalysis.Linter {
@@ -160,7 +160,7 @@ func getChecker(errCfg *config.ErrcheckSettings) (*errcheck.Checker, error) {
 func getFirstPathArg() string {
 	args := os.Args
 
-	// skip all args ([golangci-lint, run/linters]) before files/dirs list
+	// skip all args ([go-readability, run/linters]) before files/dirs list
 	for len(args) != 0 {
 		if args[0] == "run" {
 			args = args[1:]

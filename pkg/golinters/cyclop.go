@@ -4,8 +4,8 @@ import (
 	"github.com/bkielbasa/cyclop/pkg/analyzer"
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/golangci/golangci-lint/pkg/config"
-	"github.com/golangci/golangci-lint/pkg/golinters/goanalysis"
+	"github.com/hitzhangjie/go-readability/pkg/config"
+	"github.com/hitzhangjie/go-readability/pkg/golinters/goanalysis"
 )
 
 const cyclopName = "cyclop"

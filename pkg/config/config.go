@@ -11,8 +11,8 @@ type Config struct {
 	Severity        Severity
 	Version         Version
 
-	InternalCmdTest bool `mapstructure:"internal-cmd-test"` // Option is used only for testing golangci-lint command, don't use it
-	InternalTest    bool // Option is used only for testing golangci-lint code, don't use it
+	InternalCmdTest bool `mapstructure:"internal-cmd-test"` // Option is used only for testing go-readability command, don't use it
+	InternalTest    bool // Option is used only for testing go-readability code, don't use it
 }
 
 func NewDefault() *Config {
