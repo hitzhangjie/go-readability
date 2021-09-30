@@ -5,15 +5,7 @@
 /*.txt
 /.idea/
 /.vscode/
-/dist/
-/golangci-lint
+/go-readability
 /test/path
-/tools/Dracula.itermcolors
-/tools/dist/
-/tools/godownloader
-/tools/goreleaser
-/tools/node_modules
-/tools/svg-term
-/vendor/
 coverage.out
 coverage.xml

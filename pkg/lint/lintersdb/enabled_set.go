@@ -85,7 +85,7 @@ func (es EnabledSet) GetEnabledLintersMap() (map[string]*linter.Config, error) {
 	}
 
 	enabledLinters := es.build(&es.cfg.Linters, es.m.GetAllEnabledByDefaultLinters())
-	if os.Getenv("GL_TEST_RUN") == "1" {
+	if os.Getenv("GO_READABILITY_TEST_RUN") == "1" {
 		es.verbosePrintLintersStatus(enabledLinters)
 	}
 	return enabledLinters, nil

@@ -34,7 +34,7 @@ func NewLintRunner(t assert.TestingT, environ ...string) *LintRunner {
 
 func (r *LintRunner) Install() {
 	r.installOnce.Do(func() {
-		if os.Getenv("GOLANGCI_LINT_INSTALLED") == "true" {
+		if os.Getenv("GO_READABILITY") == "true" {
 			return
 		}
 
