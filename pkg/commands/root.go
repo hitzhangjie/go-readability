@@ -117,8 +117,8 @@ func getDefaultConcurrency() int {
 func (e *Executor) initRoot() {
 	rootCmd := &cobra.Command{
 		Use:   "go-readability",
-		Short: "go-readability is a smart linters runner.",
-		Long:  `Smart, fast linters runner. Run it in cloud for every GitHub pull request on https://golangci.com`,
+		Short: "go-readability is a calculator of go code readability.",
+		Long:  `go-readability runs linters to find readability issues and calculate the score by formulas.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 0 {
 				e.log.Fatalf("Usage: go-readability")
